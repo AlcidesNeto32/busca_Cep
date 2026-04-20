@@ -6,7 +6,7 @@ class Cep:
         self.cep = cep
 
     def search_cep(self,cep):
-        if not self.cep.isalnum():
+        if not self.cep.isdigit():
             return "Ops! o cep deve conter apenas números!"
         elif len(self.cep) != 8:
             return 'Ops! O CEP deve conter apenas 8 dígitos!'
@@ -34,16 +34,11 @@ class Cep:
         uf = dados['uf']
         regiao = dados['regiao']
 
-        formatacao_dados = f"""
-
-    ------------------------
-    CEP: {cep}
-    UF:{uf}
-    CIDADE:{cidade}
-    BAIRRO:{bairro}
-    LOGRADOURO:{logradouro}
-    COMPLEMENTO:{complemento}
-    REGIAO:{regiao} 
-    ------------------------
-    """
+        formatacao_dados =f"""CEP: {cep}
+COMPLEMENTO: {complemento}
+CIDADE: {cidade}
+BAIRRO: {bairro}
+LOGRADOURO: {logradouro}
+UF: {uf}
+REGIÃO: {regiao}"""
         return formatacao_dados
