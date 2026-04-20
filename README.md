@@ -54,17 +54,23 @@ python main.py
 -----------------------------------------
          Bem vindo ao check CEP!
 -----------------------------------------
+SELECIONE O SERVICO:
+1-BUSCAR CEP
+2-VER HISTÓRICO
+3-SAIR
+
+SELECIONE UMA DAS OPÇÕES ACIMA: 1
 
 Digite o cep: 01310100
 
     ------------------------
-    CEP: 01310-100
-    UF: SP
-    CIDADE: São Paulo
-    BAIRRO: Bela Vista
-    LOGRADOURO: Avenida Paulista
-    COMPLEMENTO: de 1 a 610 - lado par
-    REGIAO: Sudeste
+    CEP: 55620-000
+    COMPLEMENTO: 
+    CIDADE: Glória do Goitá
+    BAIRRO: 
+    LOGRADOURO: 
+    UF: PE
+    REGIÃO: Nordeste
     ------------------------
 
 Deseja procurar outro cep? S/N N
@@ -89,8 +95,9 @@ A classe Cep é responsável por:
 O main é responsável por:
 
 - Exibir a tela de boas-vindas
+- Exibir o menu
 - Instanciar e chamar o método `search_cep` da classe `Cep`
-- Manter o loop de consultas ativo até o usuário digitar `N`
+- Manter o loop de consultas ativo até o usuário digitar `N` ou Digitar 3
 
 
 ## 🔗 API utilizada
@@ -99,6 +106,3 @@ O main é responsável por:
 
 ---
 
-## 📄 Licença
-
-Este projeto é de uso livre para fins educacionais.
