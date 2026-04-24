@@ -1,23 +1,26 @@
 import requests as rq
+import functools
+import re
 
 class Cep:
 
     def __init__(self,cep):
         self.cep = cep
 
+    @functools.cache
     def search_cep(self,cep):
-        if not self.cep.isdigit():
-            return "Ops! o cep deve conter apenas números!"
-        elif len(self.cep) != 8:
-            return 'Ops! O CEP deve conter apenas 8 dígitos!'
+        padrao_cep = re.compile(r'(\d){5}|-(\d){3}')
+
+        if not padrao_cep.match(cep):
+            return f"O CEP: {self.cep} está inválido!"
 
         try:
              response = rq.get(f'https://viacep.com.br/ws/{self.cep}/json/')
-
              response.raise_for_status()
 
         except rq.exceptions.HTTPError as e:
             return f"Erro HTTP: {e}"
+
         except rq.exceptions.RequestException as e:
             return f"Erro inesperado na requisição: {e}"
 
@@ -42,3 +45,4 @@ LOGRADOURO: {logradouro}
 UF: {uf}
 REGIÃO: {regiao}"""
         return formatacao_dados
+# tinker,dar espaço no historio, e ver o loop,cache,erros ortográficos
